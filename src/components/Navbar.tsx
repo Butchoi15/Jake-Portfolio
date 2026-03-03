@@ -54,7 +54,7 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                <div className="flex items-center">
+                <div className="flex items-center ml-auto">
                     <a
                         href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
                         target="_blank"
