@@ -141,7 +141,7 @@ export default function SkillsPage() {
                         </p>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {toolCategories.map((cat, i) => (
                             <div key={i} className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
                                 <div className="flex items-center gap-4 mb-6">

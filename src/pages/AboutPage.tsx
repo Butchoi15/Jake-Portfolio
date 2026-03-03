@@ -38,8 +38,8 @@ export default function AboutPage() {
 
                             <div className="space-y-6">
                                 <h3 className="text-xl font-bold border-b border-slate-200 pb-2">Professional Experience</h3>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse">
+                                <div className="overflow-x-auto -mx-6 px-6">
+                                    <table className="w-full text-left border-collapse min-w-[400px]">
                                         <tbody className="divide-y divide-slate-100">
                                             <tr className="group">
                                                 <td className="py-4 pr-4">
