@@ -180,13 +180,6 @@ export default function SkillsPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "SEO Growth Case Study",
-                                url: "#",
-                                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-                                description: "Scaled organic traffic by 210% in 8 months for a B2B SaaS company using targeted white-hat backlink acquisition and content gap analysis.",
-                                tag: "SEO & Growth"
-                            },
-                            {
                                 title: "VisionBay Ecommerce",
                                 url: "https://visionbay.vercel.app/",
                                 image: "/visionbay.png",
