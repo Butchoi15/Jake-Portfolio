@@ -42,54 +42,89 @@ export default function AboutPage() {
                                     <table className="w-full text-left border-collapse min-w-[400px]">
                                         <tbody className="divide-y divide-slate-100">
                                             <tr className="group">
-                                                <td className="py-4 pr-4">
-                                                    <div className="font-bold text-slate-900">AB Link Builder / QA</div>
-                                                    <div className="text-sm text-slate-500 italic mb-2">Authority Builders</div>
-                                                    <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
-                                                        <span className="text-blue-400">↳</span> Maintained a 98% quality assurance rate across 500+ monthly link placements.
+                                                <td className="py-6 pr-4 align-top">
+                                                    <div className="flex gap-4">
+                                                        <div className="w-14 h-14 rounded-xl bg-white border border-slate-100 shadow-sm flex items-center justify-center flex-shrink-0 p-2">
+                                                            <img src="/authority-builders-logo.png" className="max-w-full max-h-full object-contain" alt="Authority Builders" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 text-lg">AB Link Builder / QA</div>
+                                                            <div className="text-sm text-slate-500 italic mb-2">Authority Builders</div>
+                                                            <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
+                                                                <span className="text-blue-400">↳</span> Maintained a 98% quality assurance rate across 500+ monthly link placements.
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-right tabular-nums text-slate-600 font-medium">2022 → 2026</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2022 → 2026</td>
                                             </tr>
                                             <tr className="group">
-                                                <td className="py-4 pr-4">
-                                                    <div className="font-bold text-slate-900">Web Prospecting & Link Building Assistant</div>
-                                                    <div className="text-sm text-slate-500 italic mb-2">Ethical SEO Agency</div>
-                                                    <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
-                                                        <span className="text-blue-400">↳</span> Scaled outreach campaigns resulting in a 40% increase in high-DR backlinks.
+                                                <td className="py-6 pr-4 align-top">
+                                                    <div className="flex gap-4">
+                                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                                            <span className="text-xl font-black text-blue-700">E</span>
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 text-lg">Web Prospecting & Link Building Assistant</div>
+                                                            <div className="text-sm text-slate-500 italic mb-2">Ethical SEO Agency</div>
+                                                            <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
+                                                                <span className="text-blue-400">↳</span> Scaled outreach campaigns resulting in a 40% increase in high-DR backlinks.
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-right tabular-nums text-slate-600 font-medium">2022 → 2026</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2022 → 2026</td>
                                             </tr>
                                             <tr className="group">
-                                                <td className="py-4 pr-4">
-                                                    <div className="font-bold text-slate-900">VA & SEO Specialist</div>
-                                                    <div className="text-sm text-slate-500 italic mb-2">ANT Digital Solutions Co.</div>
-                                                    <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
-                                                        <span className="text-blue-400">↳</span> Streamlined client reporting workflows, saving the agency 15+ hours per week.
+                                                <td className="py-6 pr-4 align-top">
+                                                    <div className="flex gap-4">
+                                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                                            <span className="text-xl font-black text-purple-700">A</span>
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 text-lg">VA & SEO Specialist</div>
+                                                            <div className="text-sm text-slate-500 italic mb-2">ANT Digital Solutions Co.</div>
+                                                            <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
+                                                                <span className="text-blue-400">↳</span> Streamlined client reporting workflows, saving the agency 15+ hours per week.
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-right tabular-nums text-slate-600 font-medium">2020 → 2026</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2020 → 2026</td>
                                             </tr>
                                             <tr className="group">
-                                                <td className="py-4 pr-4">
-                                                    <div className="font-bold text-slate-900">Link Builder / Prospector</div>
-                                                    <div className="text-sm text-slate-500 italic mb-2">Break The Web</div>
-                                                    <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
-                                                        <span className="text-blue-400">↳</span> Executed targeted PR outreach, securing placements on top-tier industry publications.
+                                                <td className="py-6 pr-4 align-top">
+                                                    <div className="flex gap-4">
+                                                        <div className="w-14 h-14 rounded-xl bg-white border border-slate-100 shadow-sm flex items-center justify-center flex-shrink-0 p-2">
+                                                            <img src="/break-the-web-logo.png" className="max-w-full max-h-full object-contain" alt="Break The Web" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 text-lg">Link Builder / Prospector</div>
+                                                            <div className="text-sm text-slate-500 italic mb-2">Break The Web</div>
+                                                            <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
+                                                                <span className="text-blue-400">↳</span> Executed targeted PR outreach, securing placements on top-tier industry publications.
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-right tabular-nums text-slate-600 font-medium">2024 → 2026</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2024 → 2026</td>
                                             </tr>
                                             <tr className="group">
-                                                <td className="py-4 pr-4">
-                                                    <div className="font-bold text-slate-900">Affiliate Marketing Assistant</div>
-                                                    <div className="text-sm text-slate-500 italic mb-2">Loop Earplugs</div>
-                                                    <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
-                                                        <span className="text-blue-400">↳</span> Managed and grew an affiliate database of 2,000+ creators, boosting partner revenue.
+                                                <td className="py-6 pr-4 align-top">
+                                                    <div className="flex gap-4">
+                                                        <div className="w-14 h-14 rounded-xl bg-white border border-slate-100 shadow-sm flex items-center justify-center flex-shrink-0 p-2">
+                                                            <img src="/loop-earplugs-logo.png" className="max-w-full max-h-full object-contain" alt="Loop Earplugs" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 text-lg">Affiliate Marketing Assistant</div>
+                                                            <div className="text-sm text-slate-500 italic mb-2">Loop Earplugs</div>
+                                                            <div className="text-sm font-medium text-blue-600 flex items-start gap-2">
+                                                                <span className="text-blue-400">↳</span> Managed and grew an affiliate database of 2,000+ creators, boosting partner revenue.
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-4 text-right tabular-nums text-slate-600 font-medium">2023 → 2025</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2023 → 2025</td>
                                             </tr>
                                         </tbody>
                                     </table>

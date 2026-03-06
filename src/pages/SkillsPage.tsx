@@ -259,7 +259,7 @@ export default function SkillsPage() {
                             {
                                 title: "Marketing Email Scraper",
                                 url: "https://marketing-email-scraper.vercel.app/",
-                                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+                                image: "/marketing-scraper.png",
                                 description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
                                 tag: "AI & Automation"
                             }
