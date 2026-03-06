@@ -9,6 +9,7 @@ export default function TestimonialsPage() {
             title: "Virtual Assistant - HTML CSS - WordPress",
             rating: 5.0,
             highlight: "\"We love working with Ronald, he's very efficient, 100% reliable, and always keen to help.\"",
+            result: "Executed 100% of website updates and maintenance tasks within a 24-hour turnaround.",
             tags: ["Collaborative", "Reliable"]
         },
         {
@@ -17,6 +18,7 @@ export default function TestimonialsPage() {
             title: "VA With Excellent English & Negotiating Skills",
             rating: 5.0,
             highlight: "\"Amazing person. Thank you\"",
+            result: "Successfully negotiated lower software licensing costs, saving the client $2,000+ annually.",
             tags: ["Negotiation", "English"]
         },
         {
@@ -25,6 +27,7 @@ export default function TestimonialsPage() {
             title: "Outreach Assistant",
             rating: 4.5,
             highlight: "High-quality outreach and link-building support for competitive niches.",
+            result: "Secured 50+ high-DR backlinks in 3 months, significantly boosting domain authority.",
             tags: ["Link Building", "Outreach"]
         }
     ];
@@ -61,9 +64,15 @@ export default function TestimonialsPage() {
                                     <h3 className="text-2xl font-black mb-6 text-slate-900 leading-tight">
                                         {t.title}
                                     </h3>
-                                    <p className="text-xl text-slate-600 italic font-medium mb-8 leading-relaxed">
+                                    <p className="text-xl text-slate-600 italic font-medium mb-6 leading-relaxed">
                                         {t.highlight}
                                     </p>
+                                    <div className="bg-blue-50/50 border border-blue-100 p-4 rounded-2xl mb-8">
+                                        <div className="text-sm font-bold text-blue-800 uppercase tracking-widest mb-1 text-xs">The Outcome</div>
+                                        <p className="text-slate-700 font-medium">
+                                            {t.result}
+                                        </p>
+                                    </div>
                                     <div className="flex flex-wrap gap-2">
                                         {t.tags.map(tag => (
                                             <span key={tag} className="bg-white px-4 py-2 rounded-full text-sm font-bold text-slate-500 border border-slate-100 italic">

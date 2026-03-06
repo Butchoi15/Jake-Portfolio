@@ -18,10 +18,10 @@ export default function HomePage() {
 
                 <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 md:py-32 space-y-8 flex flex-col items-center">
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-black leading-[1.1] tracking-tight text-white mb-2">
-                        I Make Your Website <span className="text-blue-400">Super Popular!</span>
+                        I Scale Your Traffic & <span className="text-blue-400">Automate Your Growth</span>
                     </h1>
                     <p className="text-lg md:text-2xl text-slate-300 font-medium leading-relaxed max-w-2xl px-2">
-                        You built a great business. Now let's make sure people actually see it. I bring the traffic, handle the tech, and turn visitors into paying customers.
+                        Stop losing hours to tasks that don't generate revenue. I combine proven SEO strategies with smart AI automation to bring you more leads and win back your time.
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-4 justify-center">
@@ -29,7 +29,7 @@ export default function HomePage() {
                             to="/contact"
                             className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-base md:text-lg hover:bg-blue-500 transition-transform hover:scale-105 flex items-center gap-2 shadow-lg shadow-blue-500/30"
                         >
-                            Let's Work Together <ArrowRight className="w-5 h-5" />
+                            Book a Free Strategy Call <ArrowRight className="w-5 h-5" />
                         </Link>
                     </div>
 

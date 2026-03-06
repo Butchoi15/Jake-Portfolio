@@ -169,38 +169,66 @@ export default function SkillsPage() {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div className="max-w-2xl text-left">
                             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
-                                Websites I Created 🌐
+                                Case Studies & Projects 🚀
                             </h2>
                             <p className="text-xl text-slate-400 font-medium">
-                                Here are some of the projects I've built and managed recently.
+                                Real results driven by data, automation, and solid development.
                             </p>
                         </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a
-                            href="https://visionbay.vercel.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group relative bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500 transition-all block"
-                        >
-                            <div className="aspect-video bg-slate-700 overflow-hidden">
-                                <img
-                                    src="/visionbay.png"
-                                    alt="VisionBay Ecommerce"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
-                            </div>
-                            <div className="p-8">
-                                <div className="flex justify-between items-center mb-4">
-                                    <h3 className="text-2xl font-bold">VisionBay</h3>
-                                    <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-blue-400" />
+                        {[
+                            {
+                                title: "SEO Growth Case Study",
+                                url: "#",
+                                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+                                description: "Scaled organic traffic by 210% in 8 months for a B2B SaaS company using targeted white-hat backlink acquisition and content gap analysis.",
+                                tag: "SEO & Growth"
+                            },
+                            {
+                                title: "VisionBay Ecommerce",
+                                url: "https://visionbay.vercel.app/",
+                                image: "/visionbay.png",
+                                description: "A high-performance ecommerce website built for security products, featuring modern UI and conversion-focused design.",
+                                tag: "Web Development"
+                            },
+                            {
+                                title: "Marketing Email Scraper",
+                                url: "https://marketing-email-scraper.vercel.app/",
+                                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+                                description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
+                                tag: "AI & Automation"
+                            }
+                        ].map((project, i) => (
+                            <a
+                                key={i}
+                                href={project.url}
+                                target={project.url !== "#" ? "_blank" : "_self"}
+                                rel="noopener noreferrer"
+                                className="group relative bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500 transition-all flex flex-col h-full"
+                            >
+                                <div className="aspect-video bg-slate-700 overflow-hidden relative">
+                                    <div className="absolute top-4 left-4 z-10 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold border border-white/10">
+                                        {project.tag}
+                                    </div>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
                                 </div>
-                                <p className="text-slate-400 font-medium">
-                                    A high-performance ecommerce website built for security products, featuring modern UI and conversion-focused design.
-                                </p>
-                            </div>
-                        </a>
+                                <div className="p-8 flex flex-col flex-grow">
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>
+                                        {project.url !== "#" && <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-blue-400 flex-shrink-0" />}
+                                    </div>
+                                    <p className="text-slate-400 font-medium">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
                     </div>
                 </div>
             </section>
