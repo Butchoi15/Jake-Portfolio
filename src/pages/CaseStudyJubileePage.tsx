@@ -89,6 +89,28 @@ export default function CaseStudyJubileePage() {
                                 By consistently landing placements on trusted industry websites, the off-page SEO signals compounded. The site saw a massive <strong>931% growth in monthly volume</strong> over 17 months, successfully shifted reliance away from Amazon, and secured page 1 rankings for highly competitive non-branded keywords.
                             </p>
                         </div>
+
+                        {/* Visual Proof / Charts */}
+                        <div className="space-y-6 pt-4">
+                            <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                                📊 Growth Metrics
+                            </h2>
+
+                            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-white">
+                                <div className="border-b border-slate-100 px-5 py-3 font-semibold text-slate-800 bg-slate-50">Increase in Page 1 Keyword Positions</div>
+                                <img src="/jtv-chart-1.png" alt="Increase in Page 1 Keyword Positions" className="w-full h-auto object-cover" />
+                            </div>
+
+                            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-white">
+                                <div className="border-b border-slate-100 px-5 py-3 font-semibold text-slate-800 bg-slate-50">Growth in Non-Branded Traffic vs. Branded Traffic</div>
+                                <img src="/jtv-chart-2.png" alt="Growth in non-branded vs branded traffic" className="w-full h-auto object-cover" />
+                            </div>
+
+                            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-white">
+                                <div className="border-b border-slate-100 px-5 py-3 font-semibold text-slate-800 bg-slate-50">Total Organic Search Performance</div>
+                                <img src="/jtv-chart-3.png" alt="931% growth in monthly volume" className="w-full h-auto object-cover" />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="space-y-8">
