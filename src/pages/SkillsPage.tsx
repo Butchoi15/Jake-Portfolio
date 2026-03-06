@@ -4,7 +4,7 @@ import {
     MessageSquare, Brain, Sparkles, Zap,
     CheckSquare, MessageCircle, Book, Clock,
     Target, ShoppingCart, Globe, Layout,
-    ExternalLink
+    ExternalLink, Search, Filter, Mail, Award
 } from 'lucide-react';
 
 const toolCategories = [
@@ -129,8 +129,78 @@ export default function SkillsPage() {
                 </div>
             </section>
 
+            {/* Link Building Process Section */}
+            <section className="py-24 bg-white border-y border-slate-100">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-20">
+                        <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">Proven Methodology</span>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
+                            My Link Building Process 🔗
+                        </h2>
+                        <p className="text-xl text-slate-600 font-medium max-w-3xl mx-auto">
+                            I don't just blast generic emails. I build relationships that result in high-authority, white-hat placements that actually move the needle for your traffic.
+                        </p>
+                    </div>
+
+                    <div className="relative">
+                        {/* Connecting Line for Desktop */}
+                        <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-purple-100 via-blue-200 to-green-100 -translate-y-1/2 z-0 rounded-full"></div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                            {/* Step 1 */}
+                            <div className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
+                                <div className="absolute -top-6 -left-6 w-12 h-12 bg-purple-100 text-purple-700 font-black text-xl rounded-full flex items-center justify-center border-4 border-white shadow-sm">1</div>
+                                <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Search className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3">Prospecting</h3>
+                                <p className="text-slate-600 font-medium leading-relaxed">
+                                    Deep research to discover highly relevant, real websites with strong DR/UR metrics and engaged traffic in your exact niche.
+                                </p>
+                            </div>
+
+                            {/* Step 2 */}
+                            <div className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
+                                <div className="absolute -top-6 -left-6 w-12 h-12 bg-blue-100 text-blue-700 font-black text-xl rounded-full flex items-center justify-center border-4 border-white shadow-sm">2</div>
+                                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Filter className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3">Vetting & QA</h3>
+                                <p className="text-slate-600 font-medium leading-relaxed">
+                                    I manually filter out PBNs, link farms, and toxic domains. If a site doesn't pass strict quality assurance, it gets dropped.
+                                </p>
+                            </div>
+
+                            {/* Step 3 */}
+                            <div className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
+                                <div className="absolute -top-6 -left-6 w-12 h-12 bg-green-100 text-green-700 font-black text-xl rounded-full flex items-center justify-center border-4 border-white shadow-sm">3</div>
+                                <div className="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Mail className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3">Targeted Outreach</h3>
+                                <p className="text-slate-600 font-medium leading-relaxed">
+                                    Crafting highly personalized outreach campaigns and negotiating with site owners for guest posts, niche edits, and ABC exchanges.
+                                </p>
+                            </div>
+
+                            {/* Step 4 */}
+                            <div className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 relative group hover:-translate-y-2 transition-transform duration-300">
+                                <div className="absolute -top-6 -left-6 w-12 h-12 bg-orange-100 text-orange-700 font-black text-xl rounded-full flex items-center justify-center border-4 border-white shadow-sm">4</div>
+                                <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Award className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3">Placement & Tracking</h3>
+                                <p className="text-slate-600 font-medium leading-relaxed">
+                                    Securing the live link, verifying anchor text placement, and monitoring its impact on your domain authority over time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Tools Section */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
@@ -143,7 +213,7 @@ export default function SkillsPage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {toolCategories.map((cat, i) => (
-                            <div key={i} className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                            <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="p-3 bg-white rounded-xl shadow-sm">
                                         {cat.icon}
