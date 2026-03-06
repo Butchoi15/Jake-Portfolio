@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
 import ContactPage from './pages/ContactPage';
 import TestimonialsPage from './pages/TestimonialsPage';
+import CaseStudyJubileePage from './pages/CaseStudyJubileePage';
 
 // ScrollToTop component to handle hash links and page transitions
 function ScrollToTop() {
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/case-studies/jubileetv" element={<CaseStudyJubileePage />} />
         </Routes>
       </div>
     </BrowserRouter>

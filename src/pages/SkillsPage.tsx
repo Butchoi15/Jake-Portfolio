@@ -251,8 +251,8 @@ export default function SkillsPage() {
                         {[
                             {
                                 title: "JubileeTV SEO & Digital PR",
-                                url: "https://breaktheweb.agency/work/jubileetv/",
-                                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+                                url: "/case-studies/jubileetv",
+                                image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop",
                                 description: "Led prospecting and outreach that generated high-authority placements in senior care/wellness niches, contributing to a 1,377% increase in organic revenue and outranking Amazon.",
                                 tag: "SEO Case Study"
                             },
