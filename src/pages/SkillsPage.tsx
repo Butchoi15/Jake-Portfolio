@@ -250,6 +250,13 @@ export default function SkillsPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
+                                title: "JubileeTV SEO & Digital PR",
+                                url: "https://breaktheweb.agency/work/jubileetv/",
+                                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+                                description: "Led prospecting and outreach that generated high-authority placements in senior care/wellness niches, contributing to a 1,377% increase in organic revenue and outranking Amazon.",
+                                tag: "SEO Case Study"
+                            },
+                            {
                                 title: "VisionBay Ecommerce",
                                 url: "https://visionbay.vercel.app/",
                                 image: "/visionbay.png",

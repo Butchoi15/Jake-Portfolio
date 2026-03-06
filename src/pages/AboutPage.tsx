@@ -56,7 +56,7 @@ export default function AboutPage() {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2022 → 2026</td>
+                                                <td className="py-6 text-right tabular-nums text-slate-600 font-medium align-top">2022 → Ongoing</td>
                                             </tr>
                                             <tr className="group">
                                                 <td className="py-6 pr-4 align-top">
