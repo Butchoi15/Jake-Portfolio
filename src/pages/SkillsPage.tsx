@@ -269,6 +269,13 @@ export default function SkillsPage() {
                                 image: "/marketing-scraper.png",
                                 description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
                                 tag: "AI & Automation"
+                            },
+                            {
+                                title: "AI Image Generator",
+                                url: "https://image-generator-zeta-virid.vercel.app/",
+                                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+                                description: "An interactive web application that transforms text descriptions into unique visual artworks using advanced AI models.",
+                                tag: "AI Application"
                             }
                         ].map((project, i) => (
                             <a
