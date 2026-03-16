@@ -1,5 +1,5 @@
-import React from 'react';
-import { Brain, Code, Megaphone, ExternalLink, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Brain, Code, Megaphone, ExternalLink, ChevronDown, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -17,26 +17,24 @@ const projectCategories = [
         id: "digital-marketing",
         title: "Digital Marketing & SEO",
         description: "Data-driven campaigns that move the needle on traffic, rankings, and revenue.",
-        icon: <Megaphone className="w-7 h-7" />,
+        icon: <Megaphone className="w-6 h-6" />,
         color: "#10B981",
         projects: [
             {
                 title: "JubileeTV SEO & Digital PR",
                 url: "/case-studies/jubileetv",
                 isInternal: true,
-                image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop",
-                description: "Led prospecting and outreach that generated high-authority placements in senior care and wellness niches — contributing to a 1,377% increase in organic revenue and outranking Amazon.",
-                tag: "SEO Case Study",
-                featured: true,
-                stats: ["+1,377% Revenue", "+316% Traffic", "#1 Above Amazon"]
+                image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=400&auto=format&fit=crop",
+                description: "Led prospecting and outreach that generated high-authority placements — contributing to a 1,377% increase in organic revenue and outranking Amazon.",
+                tag: "SEO Case Study"
             }
         ]
     },
     {
         id: "ai-automation",
         title: "AI & Automation",
-        description: "Intelligent tools and AI-powered applications that automate workflows and unlock new capabilities.",
-        icon: <Brain className="w-7 h-7" />,
+        description: "Intelligent tools and AI-powered applications that automate workflows.",
+        icon: <Brain className="w-6 h-6" />,
         color: "#7C3AED",
         projects: [
             {
@@ -44,15 +42,15 @@ const projectCategories = [
                 url: "https://marketing-email-scraper.vercel.app/",
                 isInternal: false,
                 image: "/marketing-scraper.png",
-                description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
+                description: "An automated lead generation tool that rapidly extracts verified contact emails for outreach campaigns.",
                 tag: "Lead Gen Tool"
             },
             {
                 title: "AI Image Generator",
                 url: "https://image-generator-zeta-virid.vercel.app/",
                 isInternal: false,
-                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
-                description: "An interactive web application that transforms text descriptions into unique visual artworks using advanced AI models.",
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=400&auto=format&fit=crop",
+                description: "An interactive web application that transforms text descriptions into unique visual artworks using AI.",
                 tag: "AI Application"
             }
         ]
@@ -60,8 +58,8 @@ const projectCategories = [
     {
         id: "web-development",
         title: "Web Development & Design",
-        description: "Modern, responsive websites and applications built with performance and user experience as top priorities.",
-        icon: <Code className="w-7 h-7" />,
+        description: "Modern, responsive websites built with performance and UX in mind.",
+        icon: <Code className="w-6 h-6" />,
         color: "#4F46E5",
         projects: [
             {
@@ -69,15 +67,15 @@ const projectCategories = [
                 url: "https://visionbay.vercel.app/",
                 isInternal: false,
                 image: "/visionbay.png",
-                description: "A high-performance ecommerce website built for security products, featuring modern UI and conversion-focused design.",
+                description: "A high-performance ecommerce website for security products with conversion-focused design.",
                 tag: "Ecommerce"
             },
             {
                 title: "Yoga Teacher Studio",
                 url: "https://yogateacher-five.vercel.app/",
                 isInternal: false,
-                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
-                description: "A calming, functional web application designed for a yoga instructor, featuring elegant layouts and structured service pages.",
+                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop",
+                description: "A calming, functional web application for a yoga instructor with elegant layouts.",
                 tag: "Web Design"
             }
         ]
@@ -85,6 +83,12 @@ const projectCategories = [
 ];
 
 export default function CaseStudiesPage() {
+    const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+    const toggleCategory = (id: string) => {
+        setExpandedCategory(expandedCategory === id ? null : id);
+    };
+
     return (
         <main className="bg-[#FAFAF9] min-h-screen pt-24 pb-32">
             <div className="max-w-6xl mx-auto px-6">
@@ -96,102 +100,85 @@ export default function CaseStudiesPage() {
                         Case Studies & Projects
                     </h1>
                     <p className="text-lg text-[#6B7280] font-medium max-w-2xl mx-auto">
-                        Real results driven by data, automation, and solid development. Here's a selection of work I'm proud of.
+                        Real results driven by data, automation, and solid development. Tap a category to explore.
                     </p>
                 </div>
 
-                {/* Categories */}
-                <div className="space-y-16">
-                    {projectCategories.map((cat, catIndex) => (
-                        <div key={cat.id}>
-                            <RevealCard delay={catIndex * 80}>
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center border" style={{ background: `${cat.color}10`, borderColor: `${cat.color}20`, color: cat.color }}>
-                                        {cat.icon}
-                                    </div>
-                                    <div>
-                                        <h2 className="text-2xl font-heading font-black text-[#1A1A2E]">{cat.title}</h2>
-                                        <p className="text-sm text-[#6B7280]">{cat.description}</p>
+                {/* Accordion Categories */}
+                <div className="space-y-4 max-w-4xl mx-auto">
+                    {projectCategories.map((cat, i) => {
+                        const isExpanded = expandedCategory === cat.id;
+
+                        return (
+                            <RevealCard key={cat.id} delay={i * 80}>
+                                <div className={`card overflow-hidden transition-all duration-300 ${isExpanded ? 'shadow-[0_8px_40px_rgba(0,0,0,0.08)]' : ''}`} style={{ borderColor: isExpanded ? `${cat.color}30` : undefined }}>
+                                    {/* Category Header — Clickable */}
+                                    <button
+                                        onClick={() => toggleCategory(cat.id)}
+                                        className="w-full p-5 sm:p-6 flex items-center gap-4 text-left group cursor-pointer"
+                                    >
+                                        <div className="w-11 h-11 rounded-xl flex items-center justify-center border flex-shrink-0 group-hover:scale-105 transition-transform" style={{ background: `${cat.color}10`, borderColor: `${cat.color}20`, color: cat.color }}>
+                                            {cat.icon}
+                                        </div>
+                                        <div className="flex-grow min-w-0">
+                                            <h2 className="text-lg sm:text-xl font-heading font-bold text-[#1A1A2E] truncate">{cat.title}</h2>
+                                            <p className="text-sm text-[#6B7280] hidden sm:block">{cat.description}</p>
+                                        </div>
+                                        <div className="flex items-center gap-3 flex-shrink-0">
+                                            <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-bold border" style={{ background: `${cat.color}08`, borderColor: `${cat.color}18`, color: cat.color }}>
+                                                {cat.projects.length} {cat.projects.length === 1 ? 'project' : 'projects'}
+                                            </span>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} style={{ background: `${cat.color}10`, color: cat.color }}>
+                                                <ChevronDown className="w-4 h-4" />
+                                            </div>
+                                        </div>
+                                    </button>
+
+                                    {/* Expanded Projects */}
+                                    <div className={`transition-all duration-400 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                                            <div className="border-t border-[#E5E7EB] pt-5">
+                                                <div className="space-y-3">
+                                                    {cat.projects.map((project, j) => {
+                                                        const cardContent = (
+                                                            <div className="flex items-center gap-4 p-3 rounded-xl bg-[#F5F3F0] border border-[#E5E7EB] hover:border-[#D1D5DB] hover:shadow-sm transition-all group/item">
+                                                                {/* Small Thumbnail */}
+                                                                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-white flex-shrink-0 border border-[#E5E7EB]">
+                                                                    <img
+                                                                        src={project.image}
+                                                                        alt={project.title}
+                                                                        className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"
+                                                                        loading="lazy"
+                                                                    />
+                                                                </div>
+                                                                {/* Info */}
+                                                                <div className="flex-grow min-w-0">
+                                                                    <div className="flex items-center gap-2 mb-1">
+                                                                        <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: cat.color }}>{project.tag}</span>
+                                                                    </div>
+                                                                    <h3 className="text-sm sm:text-base font-heading font-bold text-[#1A1A2E] leading-snug mb-1">{project.title}</h3>
+                                                                    <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed line-clamp-2">{project.description}</p>
+                                                                </div>
+                                                                {/* Arrow */}
+                                                                <div className="w-8 h-8 rounded-full bg-white border border-[#E5E7EB] group-hover/item:bg-[#4F46E5] group-hover/item:border-[#4F46E5] text-[#6B7280] group-hover/item:text-white flex items-center justify-center flex-shrink-0 transition-all">
+                                                                    {project.isInternal ? <ArrowRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
+                                                                </div>
+                                                            </div>
+                                                        );
+
+                                                        if (project.isInternal) {
+                                                            return <Link key={j} to={project.url} className="block">{cardContent}</Link>;
+                                                        }
+                                                        return <a key={j} href={project.url} target="_blank" rel="noopener noreferrer" className="block">{cardContent}</a>;
+                                                    })}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </RevealCard>
-
-                            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                                {cat.projects.map((project: any, j) => {
-                                    const inner = (
-                                        <RevealCard key={j} delay={j * 60}>
-                                            <div className={`card overflow-hidden group h-full hover:border-[#D1D5DB] ${project.featured ? 'md:col-span-2 lg:col-span-3' : ''}`}>
-                                                {project.featured ? (
-                                                    /* Featured layout — horizontal */
-                                                    <div className="grid grid-cols-1 md:grid-cols-2">
-                                                        <div className="h-64 md:h-auto bg-[#F5F3F0] overflow-hidden relative">
-                                                            <div className="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border" style={{ background: `${cat.color}10`, borderColor: `${cat.color}20`, color: cat.color }}>
-                                                                {project.tag}
-                                                            </div>
-                                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                                                        </div>
-                                                        <div className="p-8 md:p-10 flex flex-col justify-center">
-                                                            <h3 className="text-2xl font-heading font-black text-[#1A1A2E] mb-3">{project.title}</h3>
-                                                            <p className="text-[#6B7280] leading-relaxed mb-6">{project.description}</p>
-                                                            {project.stats && (
-                                                                <div className="flex flex-wrap gap-3 mb-6">
-                                                                    {project.stats.map((stat: string, si: number) => (
-                                                                        <span key={si} className="px-3 py-1.5 rounded-full text-sm font-bold border" style={{ background: `${cat.color}08`, borderColor: `${cat.color}18`, color: cat.color }}>
-                                                                            {stat}
-                                                                        </span>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-                                                            <div className="inline-flex items-center gap-2 text-[#4F46E5] font-heading font-bold text-sm group-hover:gap-3 transition-all">
-                                                                Read Full Case Study <ArrowRight className="w-4 h-4" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ) : (
-                                                    /* Standard card layout — vertical */
-                                                    <>
-                                                        <div className="h-44 bg-[#F5F3F0] overflow-hidden relative">
-                                                            <div className="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border" style={{ background: `${cat.color}10`, borderColor: `${cat.color}20`, color: cat.color }}>
-                                                                {project.tag}
-                                                            </div>
-                                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" loading="lazy" />
-                                                        </div>
-                                                        <div className="p-6">
-                                                            <div className="flex justify-between items-start gap-2 mb-2">
-                                                                <h3 className="text-lg font-heading font-bold text-[#1A1A2E]">{project.title}</h3>
-                                                                <div className="w-8 h-8 rounded-full bg-[#F5F3F0] group-hover:bg-[#4F46E5] text-[#6B7280] group-hover:text-white flex items-center justify-center flex-shrink-0 transition-all border border-[#E5E7EB] group-hover:border-[#4F46E5]">
-                                                                    <ExternalLink className="w-3.5 h-3.5" />
-                                                                </div>
-                                                            </div>
-                                                            <p className="text-sm text-[#6B7280] leading-relaxed">{project.description}</p>
-                                                        </div>
-                                                    </>
-                                                )}
-                                            </div>
-                                        </RevealCard>
-                                    );
-
-                                    if (project.featured) {
-                                        return (
-                                            <div key={j} className="md:col-span-2 lg:col-span-3">
-                                                {project.isInternal ? (
-                                                    <Link to={project.url} className="block">{inner}</Link>
-                                                ) : (
-                                                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">{inner}</a>
-                                                )}
-                                            </div>
-                                        );
-                                    }
-
-                                    return project.isInternal ? (
-                                        <Link key={j} to={project.url} className="block">{inner}</Link>
-                                    ) : (
-                                        <a key={j} href={project.url} target="_blank" rel="noopener noreferrer" className="block">{inner}</a>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </main>

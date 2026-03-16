@@ -27,16 +27,16 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'Home', path: '/' },
+        { name: 'About Me', path: '/about' },
+        { name: 'My Skills', path: '/skills' },
         { name: 'Case Studies', path: '/case-studies' },
+        { name: 'Testimonials', path: '/testimonials' },
+        { name: 'Contact', path: '/contact' },
     ];
 
     return (
         <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-lg shadow-[0_1px_3px_rgba(0,0,0,0.06)] border-b border-[#E5E7EB]' : 'bg-transparent'}`}>
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
-
-                <Link to="/" className="font-heading font-bold text-lg text-[#1A1A2E] hover:text-[#4F46E5] transition-colors">
-                    Jake<span className="text-[#4F46E5]">.</span>
-                </Link>
 
                 {/* Mobile Menu Button */}
                 <button
@@ -48,7 +48,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-7 mx-auto">
                     {navLinks.map((link) => {
                         const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
                         return (
@@ -64,15 +64,17 @@ export default function Navbar() {
                             </Link>
                         );
                     })}
-                    <a
-                        href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="accent-gradient text-white px-5 py-2 rounded-full font-heading font-bold text-sm hover:opacity-90 transition-opacity shadow-[0_2px_12px_rgba(79,70,229,0.3)]"
-                    >
-                        Hire Me
-                    </a>
                 </nav>
+
+                {/* Hire Me — always visible */}
+                <a
+                    href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="accent-gradient text-white px-5 py-2 rounded-full font-heading font-bold text-sm hover:opacity-90 transition-opacity shadow-[0_2px_12px_rgba(79,70,229,0.3)]"
+                >
+                    Hire Me
+                </a>
 
                 {/* Mobile Navigation Overlay */}
                 <div
@@ -80,27 +82,18 @@ export default function Navbar() {
                         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
                 >
-                    <nav className="flex flex-col items-center justify-center gap-8 w-full px-6">
+                    <nav className="flex flex-col items-center justify-center gap-7 w-full px-6">
                         {navLinks.map((link, i) => (
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`font-heading text-2xl font-bold text-[#1A1A2E] hover:text-[#4F46E5] transition-all ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                                style={{ transitionDelay: `${i * 80}ms` }}
+                                className={`font-heading text-xl font-bold text-[#1A1A2E] hover:text-[#4F46E5] transition-all ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                style={{ transitionDelay: `${i * 60}ms` }}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <a
-                            href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="accent-gradient text-white px-8 py-3 rounded-full font-heading font-bold text-base mt-4"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Hire Me
-                        </a>
                     </nav>
                 </div>
             </div>
