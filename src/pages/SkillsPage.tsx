@@ -196,30 +196,33 @@ function PortfolioSection() {
                                     >
                                         <div className="px-4 sm:px-8 pb-6 sm:pb-8">
                                             <div className={`border-t ${c.border} pt-6 sm:pt-8`}>
-                                                <div className={`grid gap-6 ${cat.projects.length === 1 ? 'grid-cols-1 max-w-2xl' : 'grid-cols-1 md:grid-cols-2'}`}>
+                                                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                                                     {cat.projects.map((project, j) => {
                                                         const cardContent = (
-                                                            <div className="group relative glass-card p-2 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-white/10 hover:border-white/30 transition-all flex flex-col h-full hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-                                                                <div className="aspect-video bg-[#050510] overflow-hidden relative rounded-[1.25rem] sm:rounded-[1.75rem]">
-                                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050510] to-transparent z-10 opacity-80"></div>
-                                                                    <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 z-20 bg-black/60 backdrop-blur-md text-white px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs font-bold border border-white/10 uppercase tracking-widest ${c.tag} shadow-xl`}>
+                                                            <div className="group relative glass-card rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all flex flex-row sm:flex-col h-full hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                                                                {/* Thumbnail */}
+                                                                <div className="w-28 sm:w-full h-full sm:h-32 bg-[#050510] overflow-hidden relative flex-shrink-0">
+                                                                    <div className="absolute inset-0 bg-gradient-to-r sm:bg-gradient-to-t from-[#050510]/60 to-transparent z-10"></div>
+                                                                    <div className={`hidden sm:block absolute top-2 left-2 z-20 bg-black/60 backdrop-blur-md text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold border border-white/10 uppercase tracking-widest ${c.tag}`}>
                                                                         {project.tag}
                                                                     </div>
                                                                     <img
                                                                         src={project.image}
                                                                         alt={project.title}
-                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                                                                         loading="lazy"
                                                                     />
                                                                 </div>
-                                                                <div className="p-5 sm:p-8 flex flex-col flex-grow relative z-20 -mt-12 sm:-mt-16">
-                                                                    <div className="flex justify-between items-start mb-3 sm:mb-4 gap-3">
-                                                                        <h4 className="text-lg sm:text-2xl font-heading font-bold text-white leading-tight drop-shadow-md">{project.title}</h4>
-                                                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 group-hover:bg-blue-500 text-white flex items-center justify-center flex-shrink-0 transition-all">
-                                                                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
+                                                                {/* Info */}
+                                                                <div className="p-3 sm:p-4 flex flex-col flex-grow min-w-0">
+                                                                    <div className={`sm:hidden text-[10px] font-bold uppercase tracking-widest ${c.tag} mb-1`}>{project.tag}</div>
+                                                                    <div className="flex justify-between items-start gap-2 mb-1 sm:mb-2">
+                                                                        <h4 className="text-sm sm:text-base font-heading font-bold text-white leading-snug">{project.title}</h4>
+                                                                        <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-blue-500 text-white flex items-center justify-center flex-shrink-0 transition-all">
+                                                                            <ExternalLink className="w-3.5 h-3.5" />
                                                                         </div>
                                                                     </div>
-                                                                    <p className="text-sm sm:text-base text-white/60 font-medium leading-relaxed">
+                                                                    <p className="text-xs sm:text-sm text-white/50 font-medium leading-relaxed line-clamp-2 sm:line-clamp-3">
                                                                         {project.description}
                                                                     </p>
                                                                 </div>
