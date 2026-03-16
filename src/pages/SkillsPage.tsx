@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     TrendingUp, Users, CheckCircle2,
     MessageSquare, Brain, Sparkles, Zap,
     CheckSquare, MessageCircle, Book, Clock,
     Target, ShoppingCart, Globe, Layout,
-    ExternalLink, Search, Filter, Mail, Award
+    ExternalLink, Search, Filter, Mail, Award,
+    ChevronDown, ArrowLeft, Code, Megaphone, X
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const toolCategories = [
@@ -44,6 +46,213 @@ const RevealCard: React.FC<{ children: React.ReactNode, delay?: number }> = ({ c
         </div>
     );
 };
+
+const projectCategories = [
+    {
+        id: "digital-marketing",
+        title: "Digital Marketing & SEO",
+        description: "Data-driven campaigns that move the needle on traffic, rankings, and revenue.",
+        icon: <Megaphone className="w-8 h-8" />,
+        color: "green",
+        colorClasses: {
+            bg: "bg-green-500/20",
+            text: "text-green-400",
+            border: "border-green-500/30",
+            hoverBorder: "hover:border-green-500/50",
+            glow: "shadow-[0_0_15px_rgba(34,197,94,0.4)]",
+            tag: "text-green-300",
+        },
+        projects: [
+            {
+                title: "JubileeTV SEO & Digital PR",
+                url: "/case-studies/jubileetv",
+                isInternal: true,
+                image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop",
+                description: "Led prospecting and outreach that generated high-authority placements in senior care/wellness niches, contributing to a 1,377% increase in organic revenue and outranking Amazon.",
+                tag: "SEO Case Study"
+            }
+        ]
+    },
+    {
+        id: "ai-automation",
+        title: "AI & Automation",
+        description: "Intelligent tools and AI-powered applications that automate workflows and unlock new capabilities.",
+        icon: <Brain className="w-8 h-8" />,
+        color: "purple",
+        colorClasses: {
+            bg: "bg-purple-500/20",
+            text: "text-purple-400",
+            border: "border-purple-500/30",
+            hoverBorder: "hover:border-purple-500/50",
+            glow: "shadow-[0_0_15px_rgba(168,85,247,0.4)]",
+            tag: "text-purple-300",
+        },
+        projects: [
+            {
+                title: "Marketing Email Scraper",
+                url: "https://marketing-email-scraper.vercel.app/",
+                isInternal: false,
+                image: "/marketing-scraper.png",
+                description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
+                tag: "Lead Gen Tool"
+            },
+            {
+                title: "AI Image Generator",
+                url: "https://image-generator-zeta-virid.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+                description: "An interactive web application that transforms text descriptions into unique visual artworks using advanced AI models.",
+                tag: "AI Application"
+            }
+        ]
+    },
+    {
+        id: "web-development",
+        title: "Web Development & Design",
+        description: "Modern, responsive websites and applications built with performance and user experience in mind.",
+        icon: <Code className="w-8 h-8" />,
+        color: "blue",
+        colorClasses: {
+            bg: "bg-blue-500/20",
+            text: "text-blue-400",
+            border: "border-blue-500/30",
+            hoverBorder: "hover:border-blue-500/50",
+            glow: "shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+            tag: "text-blue-300",
+        },
+        projects: [
+            {
+                title: "VisionBay Ecommerce",
+                url: "https://visionbay.vercel.app/",
+                isInternal: false,
+                image: "/visionbay.png",
+                description: "A high-performance ecommerce website built for security products, featuring modern UI and conversion-focused design.",
+                tag: "Ecommerce"
+            },
+            {
+                title: "Yoga Teacher Studio",
+                url: "https://yogateacher-five.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+                description: "A calming, functional web application designed for a yoga instructor, featuring elegant layouts and structured services.",
+                tag: "Web Design"
+            }
+        ]
+    }
+];
+
+function PortfolioSection() {
+    const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+    const toggleCategory = (id: string) => {
+        setExpandedCategory(expandedCategory === id ? null : id);
+    };
+
+    return (
+        <section className="py-24 border-t border-white/5 relative">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="max-w-2xl text-left mb-16">
+                    <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight text-white mb-4 text-glow">
+                        Case Studies & Projects
+                    </h2>
+                    <p className="text-xl text-white/60 font-medium">
+                        Real results driven by data, automation, and solid development. Tap a category to explore.
+                    </p>
+                </div>
+
+                <div className="grid gap-6">
+                    {projectCategories.map((cat, i) => {
+                        const isExpanded = expandedCategory === cat.id;
+                        const c = cat.colorClasses;
+
+                        return (
+                            <RevealCard key={cat.id} delay={i * 100}>
+                                <div className={`glass-card rounded-[2rem] overflow-hidden border ${isExpanded ? c.border : 'border-white/10'} ${c.hoverBorder} transition-all duration-500`}>
+                                    {/* Category Header - Clickable */}
+                                    <button
+                                        onClick={() => toggleCategory(cat.id)}
+                                        className="w-full p-6 sm:p-8 flex items-center gap-4 sm:gap-6 text-left group cursor-pointer"
+                                    >
+                                        <div className={`w-14 h-14 sm:w-16 sm:h-16 ${c.bg} ${c.text} rounded-2xl flex items-center justify-center border ${c.border} group-hover:scale-110 transition-transform ${c.glow} flex-shrink-0`}>
+                                            {cat.icon}
+                                        </div>
+                                        <div className="flex-grow min-w-0">
+                                            <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-1 truncate">{cat.title}</h3>
+                                            <p className="text-sm sm:text-base text-white/50 font-medium line-clamp-2">{cat.description}</p>
+                                        </div>
+                                        <div className="flex items-center gap-3 flex-shrink-0">
+                                            <span className={`hidden sm:inline-block ${c.bg} ${c.text} px-3 py-1 rounded-full text-sm font-bold border ${c.border}`}>
+                                                {cat.projects.length} {cat.projects.length === 1 ? 'project' : 'projects'}
+                                            </span>
+                                            <div className={`w-10 h-10 rounded-full ${c.bg} ${c.text} flex items-center justify-center transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`}>
+                                                <ChevronDown className="w-5 h-5" />
+                                            </div>
+                                        </div>
+                                    </button>
+
+                                    {/* Expanded Projects */}
+                                    <div
+                                        className={`transition-all duration-500 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                    >
+                                        <div className="px-4 sm:px-8 pb-6 sm:pb-8">
+                                            <div className={`border-t ${c.border} pt-6 sm:pt-8`}>
+                                                <div className={`grid gap-6 ${cat.projects.length === 1 ? 'grid-cols-1 max-w-2xl' : 'grid-cols-1 md:grid-cols-2'}`}>
+                                                    {cat.projects.map((project, j) => {
+                                                        const cardContent = (
+                                                            <div className="group relative glass-card p-2 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-white/10 hover:border-white/30 transition-all flex flex-col h-full hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+                                                                <div className="aspect-video bg-[#050510] overflow-hidden relative rounded-[1.25rem] sm:rounded-[1.75rem]">
+                                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050510] to-transparent z-10 opacity-80"></div>
+                                                                    <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 z-20 bg-black/60 backdrop-blur-md text-white px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs font-bold border border-white/10 uppercase tracking-widest ${c.tag} shadow-xl`}>
+                                                                        {project.tag}
+                                                                    </div>
+                                                                    <img
+                                                                        src={project.image}
+                                                                        alt={project.title}
+                                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                                                                        loading="lazy"
+                                                                    />
+                                                                </div>
+                                                                <div className="p-5 sm:p-8 flex flex-col flex-grow relative z-20 -mt-12 sm:-mt-16">
+                                                                    <div className="flex justify-between items-start mb-3 sm:mb-4 gap-3">
+                                                                        <h4 className="text-lg sm:text-2xl font-heading font-bold text-white leading-tight drop-shadow-md">{project.title}</h4>
+                                                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 group-hover:bg-blue-500 text-white flex items-center justify-center flex-shrink-0 transition-all">
+                                                                            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <p className="text-sm sm:text-base text-white/60 font-medium leading-relaxed">
+                                                                        {project.description}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        );
+
+                                                        if (project.isInternal) {
+                                                            return (
+                                                                <Link key={j} to={project.url} className="block">
+                                                                    {cardContent}
+                                                                </Link>
+                                                            );
+                                                        }
+
+                                                        return (
+                                                            <a key={j} href={project.url} target="_blank" rel="noopener noreferrer" className="block">
+                                                                {cardContent}
+                                                            </a>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </RevealCard>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
 
 export default function SkillsPage() {
     return (
@@ -212,94 +421,8 @@ export default function SkillsPage() {
             </section>
 
             {/* Portfolio Section */}
-            <section className="py-24 border-t border-white/5 relative">
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                        <div className="max-w-2xl text-left">
-                            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight text-white mb-4 text-glow">
-                                Case Studies & Projects 🚀
-                            </h2>
-                            <p className="text-xl text-white/60 font-medium">
-                                Real results driven by data, automation, and solid development.
-                            </p>
-                        </div>
-                    </div>
+            <PortfolioSection />
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                        {[
-                            {
-                                title: "JubileeTV SEO & Digital PR",
-                                url: "/case-studies/jubileetv",
-                                image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop",
-                                description: "Led prospecting and outreach that generated high-authority placements in senior care/wellness niches, contributing to a 1,377% increase in organic revenue and outranking Amazon.",
-                                tag: "SEO Case Study"
-                            },
-                            {
-                                title: "VisionBay Ecommerce",
-                                url: "https://visionbay.vercel.app/",
-                                image: "/visionbay.png",
-                                description: "A high-performance ecommerce website built for security products, featuring modern UI and conversion-focused design.",
-                                tag: "Web Development"
-                            },
-                            {
-                                title: "Marketing Email Scraper",
-                                url: "https://marketing-email-scraper.vercel.app/",
-                                image: "/marketing-scraper.png",
-                                description: "An automated lead generation tool that rapidly extracts verified contact emails for marketing and SEO outreach campaigns.",
-                                tag: "AI & Automation"
-                            },
-                            {
-                                title: "AI Image Generator",
-                                url: "https://image-generator-zeta-virid.vercel.app/",
-                                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
-                                description: "An interactive web application that transforms text descriptions into unique visual artworks using advanced AI models.",
-                                tag: "AI Application"
-                            },
-                            {
-                                title: "Yoga Teacher Studio",
-                                url: "https://yogateacher-five.vercel.app/",
-                                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
-                                description: "A calming, functional web application designed for a yoga instructor, featuring elegant layouts and structured services.",
-                                tag: "Web Design"
-                            }
-                        ].map((project, i) => (
-                            <RevealCard key={i} delay={i * 100}>
-                                <a
-                                    href={project.url}
-                                    target={project.url !== "#" ? "_blank" : "_self"}
-                                    rel="noopener noreferrer"
-                                    className="group relative glass-card p-2 rounded-[2.5rem] overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all flex flex-col h-full hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]"
-                                >
-                                    <div className="aspect-video bg-[#050510] overflow-hidden relative rounded-[2rem]">
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#050510] to-transparent z-10 opacity-80"></div>
-                                        <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 uppercase tracking-widest text-blue-300 shadow-xl">
-                                            {project.tag}
-                                        </div>
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
-                                        />
-                                    </div>
-                                    <div className="p-8 flex flex-col flex-grow relative z-20 -mt-16">
-                                        <div className="flex justify-between items-start mb-4 gap-4">
-                                            <h3 className="text-2xl font-heading font-bold text-white leading-tight drop-shadow-md">{project.title}</h3>
-                                            {project.url !== "#" && (
-                                                <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                                                    <ExternalLink className="w-5 h-5" />
-                                                </div>
-                                            )}
-                                        </div>
-                                        <p className="text-white/60 font-medium">
-                                            {project.description}
-                                        </p>
-                                    </div>
-                                </a>
-                            </RevealCard>
-                        ))}
-                    </div>
-                </div>
-            </section>
         </main>
     );
 }
