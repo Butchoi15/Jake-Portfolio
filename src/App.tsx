@@ -2,13 +2,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import SkillsPage from './pages/SkillsPage';
-import ContactPage from './pages/ContactPage';
-import TestimonialsPage from './pages/TestimonialsPage';
+import CaseStudiesPage from './pages/CaseStudiesPage';
 import CaseStudyJubileePage from './pages/CaseStudyJubileePage';
 
-// ScrollToTop component to handle hash links and page transitions
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
@@ -29,15 +25,12 @@ function ScrollToTop() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#050510] text-white/90 font-sans selection:bg-blue-500/30">
+      <div className="min-h-screen bg-[#FAFAF9] text-[#1A1A2E] font-sans">
         <Navbar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/case-studies/jubileetv" element={<CaseStudyJubileePage />} />
         </Routes>
       </div>

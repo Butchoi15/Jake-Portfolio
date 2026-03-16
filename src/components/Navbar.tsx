@@ -5,13 +5,12 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    // Close menu when location changes
     useEffect(() => {
         setIsOpen(false);
     }, [location]);
 
-    // Prevent scroll when menu is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -20,62 +19,64 @@ export default function Navbar() {
         }
     }, [isOpen]);
 
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'About Me', path: '/about' },
-        { name: 'My Skills', path: '/skills' },
-        { name: 'Testimonials', path: '/testimonials' },
-        { name: 'Contact', path: '/contact' },
+        { name: 'Case Studies', path: '/case-studies' },
     ];
 
     return (
-        <header className="w-full fixed top-0 z-50 glass-card border-b-0 border-white/5 transition-all duration-300">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
-                
+        <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-lg shadow-[0_1px_3px_rgba(0,0,0,0.06)] border-b border-[#E5E7EB]' : 'bg-transparent'}`}>
+            <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+
+                <Link to="/" className="font-heading font-bold text-lg text-[#1A1A2E] hover:text-[#4F46E5] transition-colors">
+                    Jake<span className="text-[#4F46E5]">.</span>
+                </Link>
+
                 {/* Mobile Menu Button */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden p-2 text-white/70 hover:text-white transition-colors z-50"
+                    className="md:hidden p-2 text-[#6B7280] hover:text-[#1A1A2E] transition-colors z-50"
                     aria-label="Toggle Menu"
                 >
-                    {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex gap-10 font-heading font-medium text-white/50 absolute left-1/2 -translate-x-1/2">
+                <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => {
-                        const isActive = location.pathname === link.path;
+                        const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
                         return (
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`relative hover:text-white transition-colors uppercase tracking-widest text-sm py-2 group ${
-                                    isActive ? 'text-white' : ''
+                                className={`relative font-medium text-sm transition-colors py-1 ${
+                                    isActive ? 'text-[#4F46E5]' : 'text-[#6B7280] hover:text-[#1A1A2E]'
                                 }`}
                             >
                                 {link.name}
-                                {/* Active / Hover indicator layout */}
-                                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 rounded-full transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 origin-left'}`} />
+                                <span className={`absolute -bottom-0.5 left-0 w-full h-[2px] bg-[#4F46E5] rounded-full transition-transform duration-300 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0'}`} />
                             </Link>
                         );
                     })}
-                </nav>
-
-                <div className="flex items-center ml-auto">
                     <a
                         href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative group bg-blue-600/20 text-blue-400 border border-blue-500/30 px-6 md:px-8 py-2 md:py-2.5 rounded-full font-heading font-bold hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all uppercase tracking-widest text-xs md:text-sm overflow-hidden"
+                        className="accent-gradient text-white px-5 py-2 rounded-full font-heading font-bold text-sm hover:opacity-90 transition-opacity shadow-[0_2px_12px_rgba(79,70,229,0.3)]"
                     >
-                        <span className="relative z-10">Hire Me</span>
-                        <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
+                        Hire Me
                     </a>
-                </div>
+                </nav>
 
                 {/* Mobile Navigation Overlay */}
                 <div
-                    className={`fixed inset-0 bg-[#050510]/95 backdrop-blur-xl z-40 transition-all duration-500 md:hidden flex flex-col items-center justify-center ${
+                    className={`fixed inset-0 bg-white/98 backdrop-blur-xl z-40 transition-all duration-500 md:hidden flex flex-col items-center justify-center ${
                         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
                 >
@@ -84,13 +85,22 @@ export default function Navbar() {
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`font-heading text-2xl font-bold text-white/70 hover:text-white hover:text-glow transition-all uppercase tracking-widest ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-                                style={{ transitionDelay: `${i * 100}ms` }}
+                                className={`font-heading text-2xl font-bold text-[#1A1A2E] hover:text-[#4F46E5] transition-all ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                style={{ transitionDelay: `${i * 80}ms` }}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
+                        <a
+                            href="https://www.upwork.com/freelancers/~01d4e97725ad352e6b"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="accent-gradient text-white px-8 py-3 rounded-full font-heading font-bold text-base mt-4"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Hire Me
+                        </a>
                     </nav>
                 </div>
             </div>
