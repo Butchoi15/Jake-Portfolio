@@ -130,11 +130,11 @@ export default function SkillsPage() {
                                 { num: "04", icon: <Award />, title: "Placement", desc: "Securing the live link, verifying anchors, and tracking the impact on your domain authority.", color: "#F97316" }
                             ].map((step, i) => (
                                 <RevealCard key={i} delay={i * 80}>
-                                    <div className="card p-8 h-full group hover:-translate-y-2 transition-transform duration-400 relative overflow-hidden">
-                                        <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl flex items-center justify-center font-heading font-black text-sm text-white" style={{ background: step.color }}>
+                                    <div className="card p-8 h-full group hover:-translate-y-2 transition-transform duration-400 relative">
+                                        <div className="absolute top-3 left-3 w-8 h-8 rounded-lg flex items-center justify-center font-heading font-black text-xs text-white z-10" style={{ background: step.color }}>
                                             {step.num}
                                         </div>
-                                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 border" style={{ background: `${step.color}10`, borderColor: `${step.color}20`, color: step.color }}>
+                                        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 border mt-6" style={{ background: `${step.color}10`, borderColor: `${step.color}20`, color: step.color }}>
                                             {React.cloneElement(step.icon as React.ReactElement, { className: 'w-7 h-7' })}
                                         </div>
                                         <h3 className="text-xl font-heading font-bold text-[#1A1A2E] mb-2">{step.title}</h3>

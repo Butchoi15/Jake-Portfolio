@@ -83,7 +83,7 @@ export default function AboutPage() {
                                 </div>
                                 <div className="absolute bottom-4 right-[-1rem] bg-white px-6 py-3 rounded-2xl shadow-lg border border-[#E5E7EB]">
                                     <span className="block font-heading font-black text-xl text-[#1A1A2E]">Jake</span>
-                                    <span className="text-[#4F46E5] text-xs font-bold uppercase tracking-widest">VA & SEO Specialist</span>
+                                    <span className="text-[#4F46E5] text-sm font-bold uppercase tracking-widest">VA & SEO Specialist</span>
                                 </div>
                             </div>
                         </RevealCard>

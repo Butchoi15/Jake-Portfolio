@@ -77,6 +77,22 @@ const projectCategories = [
                 image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop",
                 description: "A calming, functional web application for a yoga instructor with elegant layouts.",
                 tag: "Web Design"
+            },
+            {
+                title: "Florence Nail Salon",
+                url: "https://florence-nail-salon-utd9.vercel.app/index.html",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=400&auto=format&fit=crop",
+                description: "A luxury nail salon website for a premier Manchester, NH studio offering manicures, pedicures, gel nails, and nail art.",
+                tag: "Business Website"
+            },
+            {
+                title: "Austin Portfolio",
+                url: "https://austinportfolio.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=400&auto=format&fit=crop",
+                description: "A professional portfolio for a customer service specialist with 15+ years of experience in client relations.",
+                tag: "Portfolio"
             }
         ]
     }
@@ -121,11 +137,11 @@ export default function CaseStudiesPage() {
                                             {cat.icon}
                                         </div>
                                         <div className="flex-grow min-w-0">
-                                            <h2 className="text-lg sm:text-xl font-heading font-bold text-[#1A1A2E] truncate">{cat.title}</h2>
+                                            <h2 className="text-base sm:text-xl font-heading font-bold text-[#1A1A2E] leading-snug">{cat.title}</h2>
                                             <p className="text-sm text-[#6B7280] hidden sm:block">{cat.description}</p>
                                         </div>
                                         <div className="flex items-center gap-3 flex-shrink-0">
-                                            <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-bold border" style={{ background: `${cat.color}08`, borderColor: `${cat.color}18`, color: cat.color }}>
+                                            <span className="hidden sm:inline-block px-3 py-1 rounded-full text-sm font-bold border" style={{ background: `${cat.color}08`, borderColor: `${cat.color}18`, color: cat.color }}>
                                                 {cat.projects.length} {cat.projects.length === 1 ? 'project' : 'projects'}
                                             </span>
                                             <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} style={{ background: `${cat.color}10`, color: cat.color }}>
@@ -154,10 +170,10 @@ export default function CaseStudiesPage() {
                                                                 {/* Info */}
                                                                 <div className="flex-grow min-w-0">
                                                                     <div className="flex items-center gap-2 mb-1">
-                                                                        <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: cat.color }}>{project.tag}</span>
+                                                                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: cat.color }}>{project.tag}</span>
                                                                     </div>
                                                                     <h3 className="text-sm sm:text-base font-heading font-bold text-[#1A1A2E] leading-snug mb-1">{project.title}</h3>
-                                                                    <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed line-clamp-2">{project.description}</p>
+                                                                    <p className="text-sm text-[#6B7280] leading-relaxed line-clamp-2">{project.description}</p>
                                                                 </div>
                                                                 {/* Arrow */}
                                                                 <div className="w-8 h-8 rounded-full bg-white border border-[#E5E7EB] group-hover/item:bg-[#4F46E5] group-hover/item:border-[#4F46E5] text-[#6B7280] group-hover/item:text-white flex items-center justify-center flex-shrink-0 transition-all">

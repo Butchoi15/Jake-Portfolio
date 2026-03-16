@@ -82,12 +82,12 @@ export default function Navbar() {
                         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
                 >
-                    <nav className="flex flex-col items-center justify-center gap-7 w-full px-6">
+                    <nav className="flex flex-col items-center justify-center gap-3 w-full px-6">
                         {navLinks.map((link, i) => (
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`font-heading text-xl font-bold text-[#1A1A2E] hover:text-[#4F46E5] transition-all ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                className={`font-heading text-xl font-bold text-[#1A1A2E] hover:text-[#4F46E5] transition-all px-6 py-3 min-h-[48px] flex items-center ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                                 style={{ transitionDelay: `${i * 60}ms` }}
                                 onClick={() => setIsOpen(false)}
                             >

@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
                                         </div>
                                         <div className="flex flex-wrap gap-2">
                                             {t.tags.map(tag => (
-                                                <span key={tag} className="bg-[#F5F3F0] px-3 py-1.5 rounded-full text-xs font-medium text-[#6B7280] border border-[#E5E7EB]">
+                                                <span key={tag} className="bg-[#F5F3F0] px-3 py-1.5 rounded-full text-sm font-medium text-[#6B7280] border border-[#E5E7EB]">
                                                     #{tag}
                                                 </span>
                                             ))}
