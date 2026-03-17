@@ -93,6 +93,22 @@ const projectCategories = [
                 image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=400&auto=format&fit=crop",
                 description: "A professional portfolio for a customer service specialist with 15+ years of experience in client relations.",
                 tag: "Portfolio"
+            },
+            {
+                title: "JKD Butcher Portfolio",
+                url: "https://butcher-portfolio.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=400&auto=format&fit=crop",
+                description: "A premium professional portfolio for a Certified Butcher & Beef Specialist, focusing on technical mastery and industry certifications.",
+                tag: "Portfolio"
+            },
+            {
+                title: "Evan Mikesell Insurance",
+                url: "https://insurance-sample-landingpage.vercel.app/",
+                isInternal: false,
+                image: "/insurance-landing.png",
+                description: "A professional insurance landing page for a licensed insurance agent offering personalized home, auto, life, and business coverage solutions.",
+                tag: "Business Website"
             }
         ]
     }
@@ -154,38 +170,37 @@ export default function CaseStudiesPage() {
                                     <div className={`transition-all duration-400 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                                         <div className="px-5 sm:px-6 pb-5 sm:pb-6">
                                             <div className="border-t border-[#E5E7EB] pt-5">
-                                                <div className="space-y-3">
+                                                <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide snap-x">
                                                     {cat.projects.map((project, j) => {
                                                         const cardContent = (
-                                                            <div className="flex items-center gap-4 p-3 rounded-xl bg-[#F5F3F0] border border-[#E5E7EB] hover:border-[#D1D5DB] hover:shadow-sm transition-all group/item">
-                                                                {/* Small Thumbnail */}
-                                                                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-white flex-shrink-0 border border-[#E5E7EB]">
+                                                            <div className="flex flex-col h-full items-start gap-4 p-4 rounded-2xl bg-[#F5F3F0] border border-[#E5E7EB] hover:border-[#4F46E5] hover:shadow-lg transition-all group/item w-[280px] sm:w-[320px] flex-shrink-0 snap-start">
+                                                                {/* Thumbnail */}
+                                                                <div className="w-full aspect-video rounded-xl overflow-hidden bg-white flex-shrink-0 border border-[#E5E7EB] mb-1">
                                                                     <img
                                                                         src={project.image}
                                                                         alt={project.title}
-                                                                        className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300"
+                                                                        className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-500"
                                                                         loading="lazy"
                                                                     />
                                                                 </div>
                                                                 {/* Info */}
-                                                                <div className="flex-grow min-w-0">
-                                                                    <div className="flex items-center gap-2 mb-1">
-                                                                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: cat.color }}>{project.tag}</span>
+                                                                <div className="flex-grow min-w-0 w-full">
+                                                                    <div className="flex items-center justify-between gap-2 mb-2">
+                                                                        <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-white border border-[#E5E7EB]" style={{ color: cat.color }}>{project.tag}</span>
+                                                                        <div className="w-8 h-8 rounded-full bg-white border border-[#E5E7EB] group-hover/item:bg-[#4F46E5] group-hover/item:border-[#4F46E5] text-[#6B7280] group-hover/item:text-white flex items-center justify-center flex-shrink-0 transition-all shadow-sm">
+                                                                            {project.isInternal ? <ArrowRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
+                                                                        </div>
                                                                     </div>
-                                                                    <h3 className="text-sm sm:text-base font-heading font-bold text-[#1A1A2E] leading-snug mb-1">{project.title}</h3>
-                                                                    <p className="text-sm text-[#6B7280] leading-relaxed line-clamp-2">{project.description}</p>
-                                                                </div>
-                                                                {/* Arrow */}
-                                                                <div className="w-8 h-8 rounded-full bg-white border border-[#E5E7EB] group-hover/item:bg-[#4F46E5] group-hover/item:border-[#4F46E5] text-[#6B7280] group-hover/item:text-white flex items-center justify-center flex-shrink-0 transition-all">
-                                                                    {project.isInternal ? <ArrowRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
+                                                                    <h3 className="text-base font-heading font-black text-[#1A1A2E] leading-tight mb-2 group-hover/item:text-[#4F46E5] transition-colors">{project.title}</h3>
+                                                                    <p className="text-sm text-[#6B7280] leading-relaxed line-clamp-3 font-medium opacity-80 group-hover/item:opacity-100 transition-opacity">{project.description}</p>
                                                                 </div>
                                                             </div>
                                                         );
 
                                                         if (project.isInternal) {
-                                                            return <Link key={j} to={project.url} className="block">{cardContent}</Link>;
+                                                            return <Link key={j} to={project.url} className="block h-full">{cardContent}</Link>;
                                                         }
-                                                        return <a key={j} href={project.url} target="_blank" rel="noopener noreferrer" className="block">{cardContent}</a>;
+                                                        return <a key={j} href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">{cardContent}</a>;
                                                     })}
                                                 </div>
                                             </div>
