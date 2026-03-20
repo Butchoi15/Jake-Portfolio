@@ -52,6 +52,14 @@ const projectCategories = [
                 image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=400&auto=format&fit=crop",
                 description: "An interactive web application that transforms text descriptions into unique visual artworks using AI.",
                 tag: "AI Application"
+            },
+            {
+                title: "Manghuhula AI",
+                url: "https://manghuhula-ai.vercel.app/",
+                isInternal: false,
+                image: "/manghuhula-ai.png",
+                description: "A deeply immersive Filipino fortune-telling experience powered by Philippine mythology and AI-driven insights.",
+                tag: "AI Oracle"
             }
         ]
     },
@@ -108,6 +116,14 @@ const projectCategories = [
                 isInternal: false,
                 image: "/insurance-landing.png",
                 description: "A professional insurance landing page for a licensed insurance agent offering personalized home, auto, life, and business coverage solutions.",
+                tag: "Business Website"
+            },
+            {
+                title: "PureSmile Dental Clinic",
+                url: "https://cdodentist.vercel.app/",
+                isInternal: false,
+                image: "/puresmile-dental.png",
+                description: "A professional, high-end dental landing page featuring modern technology summaries and a scroll-driven immersive experience.",
                 tag: "Business Website"
             }
         ]
