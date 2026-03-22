@@ -125,6 +125,22 @@ const projectCategories = [
                 image: "/puresmile-dental.png",
                 description: "A professional, high-end dental landing page featuring modern technology summaries and a scroll-driven immersive experience.",
                 tag: "Business Website"
+            },
+            {
+                title: "Sitting Pretty Salon",
+                url: "https://sittingprettysalon.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=400&auto=format&fit=crop",
+                description: "A premium hair and beauty salon landing page with an elegant, modern aesthetic designed to attract new clients.",
+                tag: "Business Website"
+            },
+            {
+                title: "LA Creatives Salon",
+                url: "https://la-creatives-salon.vercel.app/",
+                isInternal: false,
+                image: "https://images.unsplash.com/photo-1521590832167-7bfcfaa6362f?q=80&w=400&auto=format&fit=crop",
+                description: "A sophisticated landing page for a creative hair studio, showcasing artistry, services, and a sleek booking experience.",
+                tag: "Business Website"
             }
         ]
     }
